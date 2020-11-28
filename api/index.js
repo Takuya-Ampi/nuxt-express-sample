@@ -7,8 +7,15 @@ const app = express()
 const users = require('./routes/users')
 const test = require('./routes/test')
 
+// body-parser
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 // DB
 const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/nuxtExpressSample', { useNewUrlParser: true, useCreateIndex: true })
+
 
 // Import API Routes
 app.use(users)
