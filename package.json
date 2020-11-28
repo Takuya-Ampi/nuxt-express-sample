@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nuxt/http": "latest",
+    "mongoose": "^5.10.17",
     "nuxt": "latest"
   },
   "devDependencies": {

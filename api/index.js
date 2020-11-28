@@ -7,6 +7,9 @@ const app = express()
 const users = require('./routes/users')
 const test = require('./routes/test')
 
+// DB
+const mongoose = require('mongoose')
+
 // Import API Routes
 app.use(users)
 app.use(test)
