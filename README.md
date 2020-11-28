@@ -1,5 +1,9 @@
 # nuxt-express
 
+express-template  
+https://github.com/nuxt-community/express-template  
+https://su-kun1899.hatenablog.com/entry/2018/02/01/230000  
+
 dot.env  
 https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-env  
 https://qiita.com/taichi0514/items/3939af222dee21a44413
