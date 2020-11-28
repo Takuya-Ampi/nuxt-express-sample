@@ -10,6 +10,7 @@ https://qiita.com/taichi0514/items/3939af222dee21a44413
 
 # エコシステムまわり  
 npm install mongoose --save  
+npm install --save body-parser  
 (npm install express --save)  
 (npm install --save-dev nodemon)  
 https://qiita.com/k-penguin-sato/items/5d0db0116843396946bd
