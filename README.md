@@ -6,7 +6,13 @@ https://su-kun1899.hatenablog.com/entry/2018/02/01/230000
 
 dot.env  
 https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-env  
-https://qiita.com/taichi0514/items/3939af222dee21a44413
+https://qiita.com/taichi0514/items/3939af222dee21a44413  
+
+# エコシステムまわり  
+npm install mongoose --save  
+(npm install express --save)  
+(npm install --save-dev nodemon)
+
 
 ## Build Setup
 
