@@ -1,16 +1,21 @@
-const mongoose = require('mongoose')
 const User = require('../models/user')
 module.exports = {
   // 全てのユーザーを取得する。
   find_users : async (req, res) => {
-    await User.find({})
-      .exec()
-      .then(users => {
-        res.json(users)
+    try {
+      const user = await User.find({}).exec()
+      return res.json({
+        status: 200,
+        msg: 'success',
+        data: user
       })
-      .catch(err => {
-        res.send(err)
+    } catch (error) {
+      console.log(error)
+      return res.json({
+        status: 400,
+        data: []
       })
+    }
   },
 
   // 新しいユーザーを作成する。
@@ -30,14 +35,30 @@ module.exports = {
 
   // 特定のユーザーを取得する。
   find_user : async (req, res) => {
-    await User.findById(req.params.user_id)
-      .exec()
-      .then(user => {
-        res.json(user)
+    try {
+      const user = await User.findById(req.params.user_id).exec()
+      return res.json({
+        status: 200,
+        msg: 'success',
+        data: user
       })
-      .catch(err => {
-        res.send(err)
+      // res.status(200).send("success")
+    } catch (error) {
+      console.log(error)
+      return res.json({
+        status: 400,
+        data: []
       })
+      // res.send(error)
+    }
+    // await User.findById(req.params.user_id)
+    //   .exec()
+    //   .then(user => {
+    //     res.json(user)
+    //   })
+    //   .catch(err => {
+    //     res.send(err)
+    //   })
   },
 
   // 特定のユーザーを更新する。
