@@ -1,5 +1,9 @@
 # nuxt-express
 
+dot.env
+https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-env 
+https://qiita.com/taichi0514/items/3939af222dee21a44413
+
 ## Build Setup
 
 ```bash
