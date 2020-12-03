@@ -49,16 +49,7 @@ module.exports = {
         status: 400,
         data: []
       })
-      // res.send(error)
     }
-    // await User.findById(req.params.user_id)
-    //   .exec()
-    //   .then(user => {
-    //     res.json(user)
-    //   })
-    //   .catch(err => {
-    //     res.send(err)
-    //   })
   },
 
   // 特定のユーザーを更新する。
