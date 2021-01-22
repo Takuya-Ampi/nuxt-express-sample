@@ -12,13 +12,15 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'server',
-
+  server: {
+    port: 3300 // デフォルト: 3000
+  },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.Title || '',
+    title: process.env.Title || 'aaa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

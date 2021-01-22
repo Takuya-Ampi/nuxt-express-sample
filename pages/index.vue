@@ -44,6 +44,9 @@ export default {
     return {
       test
     }
+  },
+  created () {
+    console.log(process.env.API)
   }
 }
 </script>
