@@ -4,7 +4,11 @@ const router = Router()
 
 // Test route
 router.use('/test', (req, res) => {
-  res.end('Test API!')
+  return res.json({
+    status: 200,
+    msg: 'success',
+    data: 'test'
+  })
 })
 
 module.exports = router

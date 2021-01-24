@@ -20,9 +20,10 @@ module.exports = {
   },
   // 新しくユーザーを作成する。
   create_user : async (req, res) => {
+    const { name } = req.body
     try {
       const user = new User()
-      user.name = req.body.name
+      user.name = name
       await user.save()
       return res.json({
         status: 200,
@@ -59,8 +60,9 @@ module.exports = {
 
   // 特定のユーザーを更新する。
   update_user : async (req, res) => {
+    const { name } = req.body.params
     try {
-      const user = await User.findOneAndUpdate({_id: req.params.user_id}, { $set: { name: req.body.name } }, { new: true })
+      const user = await User.findOneAndUpdate({_id: req.params.user_id}, { $set: { name: name } }, { new: true })
       return res.json({
         status: 200,
         msg: 'success',

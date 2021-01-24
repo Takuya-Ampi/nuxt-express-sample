@@ -16,37 +16,63 @@
           </a>
         </div>
       </div>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <form class="form-table contact-form" @submit.prevent="onSubmit">
+        <dl>
+          <dt><label>名前<span class="req">必須</span></label></dt>
+          <dd>
+            <div class="input">
+              <input v-model="contact.name" type="text" placeholder="名前" />
+            </div>
+          </dd>
+        </dl>
+        <button type="submit" class="button" value="createUser">
+          ユーザー作成
+        </button>
+      </form>
     </div>
   </div>
 </template>
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const test = await $axios.$get('/api/test')
+    const testApiResponse = await $axios.$get('/api/test')
+    if (testApiResponse.status !== 200) {
+      console.log('エラーです')
+    }
     return {
-      test
+      test: testApiResponse.data
+    }
+  },
+  data () {
+    return {
+      contact: {
+        name: ''
+      }
     }
   },
   created () {
     console.log(process.env.API)
+  },
+  methods: {
+    async onSubmit () {
+      if (this.errorCheck()) {
+        return
+      }
+      const contact = this.contact
+      const response = await this.$axios.$post('/api/users', { ...contact })
+      if (response.status !== 200) {
+        console.log('エラーです')
+      }
+    },
+    errorCheck () {
+      const contact = this.contact
+      if (!contact.name) {
+        return this.errorMessageWrapper('名前')
+      }
+    },
+    errorMessageWrapper (errMsg) {
+      console.log(`${errMsg}が入力されていません`)
+    }
   }
 }
 </script>
