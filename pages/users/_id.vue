@@ -3,11 +3,12 @@
     <div>
       <Logo />
       <h1 class="title">
-        User
+        ユーザー名
       </h1>
       <h2 class="info">
         {{ user.name }}
       </h2>
+      <br/>
       <nuxt-link class="button" to="/users">
         Users
       </nuxt-link>
@@ -18,9 +19,11 @@
 <script>
 export default {
   asyncData ({ params, error, $axios }) {
+    console.log('aaa')
+    console.log('params.id', params.id)
     return $axios.$get('/api/users/' + params.id)
       .then((res) => {
-        return { user: res }
+        return { user: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'User not found' })
