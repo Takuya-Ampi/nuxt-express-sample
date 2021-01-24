@@ -12,6 +12,9 @@
       <nuxt-link class="button" to="/users">
         Users
       </nuxt-link>
+      <button @click="onDelete">
+        削除
+      </button>
     </div>
   </section>
 </template>
@@ -24,6 +27,17 @@ export default {
       alert('エラーです')
     }
     return { user: userApiResponse.data }
+  },
+  methods: {
+    async onDelete () {
+      const response = await this.$axios.$delete(`/api/users/${this.$nuxt.$route.params.id}`)
+      if (response.status !== 200) {
+        console.log('エラーです')
+      }
+      setTimeout(() => {
+        this.$router.push('/users')
+      }, 100)
+    }
   },
   head () {
     return {
