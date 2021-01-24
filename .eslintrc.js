@@ -15,6 +15,13 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    // <img/>とか<br/>を許容
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+      }
+    }],
+    //開発時 console.log()を許容
     'no-console': 'off'
   }
 }

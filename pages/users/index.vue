@@ -22,8 +22,11 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const users = await $axios.$get('/api/users')
-    return { users: users.data }
+    const usersApiResponse = await $axios.$get('/api/users')
+    if (usersApiResponse.status !== 200) {
+      alert('エラーです')
+    }
+    return { users: usersApiResponse.data }
   },
   head () {
     return {
