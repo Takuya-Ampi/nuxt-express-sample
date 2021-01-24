@@ -39,8 +39,8 @@
 </template>
 <script>
 export default {
-  async asyncData ({ $http }) {
-    const test = await $http.$get('/api/test')
+  async asyncData ({ $axios }) {
+    const test = await $axios.$get('/api/test')
     return {
       test
     }

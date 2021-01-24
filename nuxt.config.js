@@ -68,7 +68,8 @@ export default {
   */
   modules: [
     // Doc: https://http.nuxtjs.org
-    '@nuxt/http'
+    // '@nuxt/http',
+    '@nuxtjs/axios',
   ],
 
   /*
