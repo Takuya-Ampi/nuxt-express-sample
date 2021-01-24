@@ -12,9 +12,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-// DB
+// DB useFindAndModify: falseにしないと、findOneAndUpdate()使った時にwarning出る。
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/nuxtExpressSample', { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect('mongodb://localhost:27017/nuxtExpressSample', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
 
 
 // Import API Routes
