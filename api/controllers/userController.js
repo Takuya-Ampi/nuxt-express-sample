@@ -22,6 +22,9 @@ module.exports = {
   create_user : async (req, res) => {
     const { name } = req.body
     try {
+      if(!name) {
+        throw new Error('Error: name is required')
+      }
       const user = new User()
       user.name = name
       await user.save()

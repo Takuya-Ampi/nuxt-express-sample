@@ -63,6 +63,9 @@ export default {
       if (response.status !== 200) {
         console.log('エラーです')
       }
+      setTimeout(() => {
+        this.$router.push('/users')
+      }, 100)
     },
     errorCheck () {
       const contact = this.contact
