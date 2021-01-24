@@ -84,8 +84,6 @@ module.exports = {
   // 特定のユーザーを削除する。
   delete_user : async (req, res) => {
     try {
-      console.log('req.params', req.params)
-      console.log('req.params.user_id', req.params.user_id)
       const user = await User.deleteOne({ _id: req.params.user_id }).exec()
       return res.json({
         status: 200,
